@@ -1,3 +1,5 @@
+import axios from "axios";
+
 export default{
 
      nuxtServerInit(vuexContext, context) {
@@ -13,12 +15,12 @@ export default{
           .catch(e => context.error(e));
       },
 
-    
+
 
        setProducts(vuexContext, products) {
         vuexContext.commit("setProducts", products);
       },
 
-   
+
 
 };

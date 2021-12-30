@@ -1,4 +1,3 @@
-import axios from "axios";
 
 import loadedCategoriesMutations from './mutations.js';
 import loadedCategoriesActions from './actions.js';

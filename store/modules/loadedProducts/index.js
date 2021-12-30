@@ -1,6 +1,6 @@
 
-import axios from "axios";
-          
+
+
 import loadedProductsMutations from './mutations.js';
 import loadedProductsActions from './actions.js';
 import loadedProductsGetters from './getters.js';
