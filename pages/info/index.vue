@@ -20,7 +20,8 @@ import InfoBox from '@/components/InfoPage/InfoBox.vue'
 import InfoText from '@/components/InfoPage/InfoText.vue'
 import Card from '@/components/ProductsPage/Card.vue'
 
-
+import { mapState } from 'vuex'
+import { mapGetters } from 'vuex'
 
 export default {
   name:'Info',
@@ -37,17 +38,33 @@ export default {
     this.information = this.infO
     this.relatedItems = this.bringItems
     },
-  computed: {
-    infO() {
-      return this.$store.getters.infoLength
-    },
-    bringItems() {
-  return this.$store.state.loadedProducts
-    },
+  computed:
+
+  //   bringItems() {
+  // return this.$store.state.loadedProducts
+  //   },
+
+    // infO() {
+    //   return this.$store.getters.infoLength
+    // },
+
+      mapState({
+
+        bringItems:  state => state["modules/loadedProducts"]
+
+      }),
+
+    ...mapGetters({
+
+      infO: 'infoLength'
+
+    }),
+
+
     sliceRelatedItems(){
       return this.relatedItems.slice(0 ,3)
-    }
-  },
+    },
+
   methods: {
     sendInfo(it, id) {
      this.$store.commit('addtoInfo', it, id)
