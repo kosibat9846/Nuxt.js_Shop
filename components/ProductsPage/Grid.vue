@@ -40,7 +40,7 @@
                 <h4>Kategorie</h4>
 
 
-              <li v-for="categories in category " :key="categories">{{categories.category}}</li>
+<!--              <li v-for="categories in category " :key="categories">{{categories.category}}</li>-->
 
 
 
@@ -111,6 +111,11 @@ export default {
       return this.cards.slice(0, this.showCards)
     },
   methods: {
+
+    slicedCards(){
+      return this.cards.slice(0, this.showCards)
+    },
+
     incCardNumber() {
       return this.showCards += 6
     },

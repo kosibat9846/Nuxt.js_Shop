@@ -75,7 +75,7 @@ export default {
     //   return this.$store.getters.totalPrice
     // }
 
-    ...mapGetters({
+    ...mapGetters('modules/cartItems',{
 
       cartPrice: 'totalPrice'
 
@@ -94,16 +94,14 @@ export default {
   //     this.$store.commit('outCart',id)
   // }
 
-    ...mapMutations({
+    ...mapMutations('modules/cartItems',{
 
       removeThing: 'outCart'
 
     })
 
 },
-  // created() {
-  //   console.log(this.$store);
-  // }
+
 }
 </script>
 

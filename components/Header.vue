@@ -86,7 +86,7 @@ export default {
     //   return this.$store.getters.itemsNumber
     // }
 
-    ...mapGetters({
+    ...mapGetters('modules/cartItems',{
 
       bagItemscount: 'itemsNumber'
 

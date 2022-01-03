@@ -36,10 +36,14 @@ export default {
     //   this.$store.commit('addtoInfo', it)
     // }
 
-    ...mapMutations({
+    ...mapMutations('modules/cartItems',{
 
-      addtoCart: 'inCartBy',
-      sendInfo: 'addToInfoBy'
+      addtoCart: 'inCart',
+
+    }),
+
+    ...mapMutations('modules/infoPage',{
+      sendInfo: 'addtoInfo'
 
     })
 
@@ -51,7 +55,7 @@ computed: {
     // products() {
     //   return this.$store.getters.loadedProducts;
     // }
-...mapGetters({
+...mapGetters('modules/loadedProducts',{
 
   products: 'loadedProducts'
 

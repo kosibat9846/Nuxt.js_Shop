@@ -6,7 +6,7 @@ export default{
     totalPrice(state) { // Cart Component
       if (state.cartItems.length != 0){
        return state.cartItems.reduce((a, b) => {
-         return (b.price == null ) ? a : a + b.price
+         return (b.price.nett_price == null ) ? a : a + b.price.nett_price
        }, 0)
       }
     },

@@ -27,6 +27,10 @@
 </template>
 
 <script>
+
+import { mapMutations } from 'vuex'
+
+
 export default {
   props: ['information'],
   name: 'InfoBox',
@@ -35,16 +39,33 @@ export default {
       quan: 1,
     }
   },
-  // computed: {
+//   computed: {
+//
+//   //   products() {
+//   //       return this.$store.getters.loadedProducts;
+//   //   }
+//
+//
+//
+// },
 
-  //   products() {
 
-
-  //       return this.$store.getters.loadedProducts;
-  //   }
-
-//},
   methods:{
+
+    // addtoCart(it,id) { // Info box Add to cart button
+    //   for (var i = 0; i < this.quan; i++) {
+    //     this.$store.commit('inCart', it, id)
+    //   }
+    // },
+
+    ...mapMutations('modules/cartItems',{
+
+      addtoCard: 'inCart'
+
+    }),
+
+
+
     inc() { // Info box Incrememnt button
       if (this.quan <= 8 )
        return this.quan ++
@@ -53,11 +74,7 @@ export default {
       if (this.quan >= 2)
        return this.quan --
     },
-    addtoCart(it,id) { // Info box Add to cart button
-      for (var i = 0; i < this.quan; i++) {
-        this.$store.commit('inCart', it, id)
-      }
-    },
+
   }
 }
 

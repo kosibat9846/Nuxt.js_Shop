@@ -22,6 +22,7 @@ import Card from '@/components/ProductsPage/Card.vue'
 
 import { mapState } from 'vuex'
 import { mapGetters } from 'vuex'
+import { mapMutations } from 'vuex'
 
 export default {
   name:'Info',
@@ -48,27 +49,37 @@ export default {
     //   return this.$store.getters.infoLength
     // },
 
-      mapState({
+      mapState('modules/loadedProducts',{
 
         bringItems:  state => state["modules/loadedProducts"]
 
       }),
 
-    ...mapGetters({
+    ...mapGetters('modules/infoPage',{
 
       infO: 'infoLength'
 
     }),
 
 
+
+
+  methods: {
+    // sendInfo(it, id) {
+    //  this.$store.commit('addtoInfo', it, id)
+    // }
+
+    ...mapMutations({
+
+      sendInfo: 'addtoInfo'
+
+    }),
+
     sliceRelatedItems(){
       return this.relatedItems.slice(0 ,3)
     },
 
-  methods: {
-    sendInfo(it, id) {
-     this.$store.commit('addtoInfo', it, id)
-    }
+
   }
 }
 </script>
