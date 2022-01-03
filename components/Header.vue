@@ -74,6 +74,7 @@
 
 <script>
 import Cart from '@/components/Cart.vue'
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'Header',
@@ -81,9 +82,16 @@ export default {
     Cart
   },
   computed: {
-    bagItemscount() {
-      return this.$store.getters.itemsNumber
-    }
+    // bagItemscount() {
+    //   return this.$store.getters.itemsNumber
+    // }
+
+    ...mapGetters({
+
+      bagItemscount: 'itemsNumber'
+
+    })
+
   },
   methods: {
     openCart() {

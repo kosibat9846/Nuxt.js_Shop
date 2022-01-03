@@ -4,8 +4,8 @@ import cartItemsGetters from './getters.js';
 
 
 export default{
-    
-  namespaced: true,
+
+  // namespaced: true,
   state() {
     return {
       cartItems: []

@@ -4,7 +4,7 @@ import loadedCategoriesActions from './actions.js';
 import loadedCategoriesGetters from './getters.js';
 
 export default {
-  namespaced: true,
+  // namespaced: true,
   state() {
     return {
       loadedCategories: []

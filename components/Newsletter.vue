@@ -31,7 +31,7 @@ export default {
   name: 'Newsletter',
   methods: {
     haSubmit() {
-      return alert('Thank you for subscribing')
+      return alert('Dziekujemy za subskrybcje')
     }
   }
 }

@@ -6,11 +6,11 @@
         <h1 class="text-center">Koszyk</h1>
         <hr>
 
-<!--        <transition name="fade">-->
-<!--          <div v-if="this.cartContent.length === 0" class="text-center font-italic">-->
-<!--           Twój koszyk jest pusty. Dodaj produkty.-->
-<!--          </div>-->
-<!--        </transition>-->
+        <transition name="fade">
+          <div v-if="this.cartContent.length === 0" class="text-center font-italic">
+           Twój koszyk jest pusty. Dodaj produkty.
+          </div>
+        </transition>
 
         <transition-group name="fade">
           <div class="row" v-for="thing in cartContent" v-bind:key="thing._id">
@@ -29,7 +29,7 @@
           </div>
         </transition-group >
 
-<!--         <hr v-if="this.cartContent.length !== 0">-->
+         <hr v-if="this.cartContent.length !== 0">
         <div class="row justify-content-between" style="background:#7dcf85;padding:10px 10px 10px 10px" v-if="this.cartPrice != undefined">
           <div class="flex-column pl-3">
             <h4>Suma</h4>
@@ -47,6 +47,9 @@
 
 <script>
 
+import { mapGetters } from 'vuex'
+import { mapState } from 'vuex'
+import { mapMutations } from 'vuex'
 
 export default {
   name: 'Cart',
@@ -56,14 +59,27 @@ export default {
       modalClass: 'modal off'
     }
   },
-  computed:{
-    cartContent(){
-      return this.$store.state.cartItems
-    },
-    cartPrice() {
-      return this.$store.getters.totalPrice
-    }
-  },
+  computed:
+    // cartContent(){
+    //   return this.$store.state.cartItems
+    // },
+
+
+    mapState({
+            cartContent: state => state["modules/cartItems"]
+
+    }),
+
+
+    // cartPrice() {
+    //   return this.$store.getters.totalPrice
+    // }
+
+    ...mapGetters({
+
+      cartPrice: 'totalPrice'
+
+    }),
   methods: {
     cartON() {
       if(this.cClass === 'cart on'){
@@ -74,14 +90,20 @@ export default {
         this.modalClass = 'modal'
       }
     },
-    removeThing(id){
-      this.$store.commit('outCart',id)
-  }
+  //   removeThing(id){
+  //     this.$store.commit('outCart',id)
+  // }
+
+    ...mapMutations({
+
+      removeThing: 'outCart'
+
+    })
 
 },
-  created() {
-    console.log(this.$store);
-  }
+  // created() {
+  //   console.log(this.$store);
+  // }
 }
 </script>
 

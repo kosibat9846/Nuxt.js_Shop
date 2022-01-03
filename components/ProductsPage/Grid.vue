@@ -3,7 +3,7 @@
     <div class="row justify-content-around">
       <div class="row col-6 pb-4 pr-1">
         <div class="dropdown">
-          <a class="btn btn-light dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sortowanie 
+          <a class="btn btn-light dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sortowanie
             <span style="color:#f2be00;">{{ sortButton }}</span>
           </a>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
@@ -23,9 +23,9 @@
               <a class="dropdown-item" @click="sortI('chair')">Chairs</a>
               <a class="dropdown-item" @click="sortI('sofa')">Sofas</a>
 
-            
+
               <div class="dropdown-divider"></div>
-            
+
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" @click="reSet">Reset</a>
             </div>
@@ -38,16 +38,16 @@
             <div class="card-body p-5">
               <div  class="search-title">
                 <h4>Kategorie</h4>
-            
+
 
               <li v-for="categories in category " :key="categories">{{categories.category}}</li>
-              
 
-              
-                
-            
-               
-              
+
+
+
+
+
+
               </div>
 
             </div>
@@ -72,12 +72,12 @@
 <script>
 
 import Card from './Card.vue'
-
+import { mapState } from 'vuex'
 
 export default {
   name:'Grid',
   components: {
-    
+
      Card
   },
 
@@ -91,19 +91,25 @@ export default {
   created(){
     this.cards = this.it
   },
-  computed: {
-    it(){
-    return this.$store.state.loadedProducts
-    },
+  computed:
+    // it(){
+    // return this.$store.state.loadedProducts
+    // },
+  mapState({
 
-    category() {
-      return this.$store.state.loadedCategories
-    },
+    it:state => state["modules/loadedProducts"]
+
+
+  }),
+
+
+    // category() {
+    //   return this.$store.state.loadedCategories
+    // },
 
     slicedCards(){
       return this.cards.slice(0, this.showCards)
-    }
-  },
+    },
   methods: {
     incCardNumber() {
       return this.showCards += 6

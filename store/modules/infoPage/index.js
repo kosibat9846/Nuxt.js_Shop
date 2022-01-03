@@ -3,7 +3,7 @@ import infoPageActions from './actions.js';
 import infoPageGetters from './getters.js';
 
 export default {
-  namespaced: true,
+  // namespaced: true,
   state() {
     return {
       infoPage: []
