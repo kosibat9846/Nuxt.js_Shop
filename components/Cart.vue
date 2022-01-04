@@ -6,11 +6,11 @@
         <h1 class="text-center">Koszyk</h1>
         <hr>
 
-<!--        <transition name="fade">-->
-<!--          <div v-if="this.cartContent.length === 0" class="text-center font-italic">-->
-<!--           Twój koszyk jest pusty. Dodaj produkty.-->
-<!--          </div>-->
-<!--        </transition>-->
+        <transition name="fade">
+          <div v-if="this.cartContent.length === 0" class="text-center font-italic">
+           Twój koszyk jest pusty. Dodaj produkty.
+          </div>
+        </transition>
 
         <transition-group name="fade">
           <div class="row" v-for="thing in cartContent" v-bind:key="thing._id">
@@ -21,7 +21,7 @@
             </div>
             <div class="col6 col-xl-6 col-lg-6 col-md-6 col-sm-6">
               <h4>{{ thing.name }}</h4>
-              <h6>{{ thing.price.nett_price }}</h6>
+              <h6>{{ thing.name }}</h6>
             </div>
             <div class="col2 col-xl-2 col-lg-2 col-md-2 col-sm-2 pt-4">
               <span class="remove-btn" @click="removeThing(thing.id)">usuń</span>
@@ -29,7 +29,7 @@
           </div>
         </transition-group >
 
-<!--         <hr v-if="this.cartContent.length !== 0">-->
+         <hr v-if="this.cartContent.length !== 0">
         <div class="row justify-content-between" style="background:#7dcf85;padding:10px 10px 10px 10px" v-if="this.cartPrice != undefined">
           <div class="flex-column pl-3">
             <h4>Suma</h4>
@@ -68,7 +68,7 @@ export default {
     // }
 
     ...mapState({
-      cartContent: state => state["modules/cartItems"]
+      cartContent: state => state.cartItems
     }),
     ...mapGetters('modules/cartItems',{
 

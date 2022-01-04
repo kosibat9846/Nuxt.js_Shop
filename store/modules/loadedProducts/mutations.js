@@ -1,6 +1,7 @@
 export default{
 
-   setProducts(state, products) {
+
+  setProducts(state, products) {
         state.loadedProducts = products;
       },
 

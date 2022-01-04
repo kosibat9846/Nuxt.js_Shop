@@ -1,5 +1,8 @@
 <template>
+
   <div class="container grid">
+{{cards}}
+
     <div class="row justify-content-around">
       <div class="row col-6 pb-4 pr-1">
         <div class="dropdown">
@@ -42,12 +45,6 @@
 
 <!--              <li v-for="categories in category " :key="categories">{{categories.category}}</li>-->
 
-
-
-
-
-
-
               </div>
 
             </div>
@@ -58,7 +55,7 @@
             <h4 style="margin-left:9rem;margin-right:9rem">Sorry, we can't find a product with this features</h4>
           </div>
 
-            <Card :CardArray="slicedCards" />
+<!--            <Card :CardArray="slicedCards" />-->
 
           <div class="col-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 py-5">
             <button type="button" @click="incCardNumber" class="btn btn-outline-secondary btn-lg btn-block">Więcej +</button>
@@ -99,12 +96,12 @@ export default {
     //   return this.$store.state.loadedCategories
     // },
     ...mapState({
-      it: state => state["modules/loadedProducts"]
+      it: state => state.loadedProducts
     }),
 
-  slicedCards(){
-      return this.cards.slice(0, this.showCards)
-    },
+  // slicedCards(){
+  //     return this.cards.slice(0, this.showCards)
+  //   },
 
   },
   methods: {
@@ -112,11 +109,11 @@ export default {
     incCardNumber() {
       return this.showCards += 6
     },
-    // valueSlider(value) {
-    //   var x = value[0];
-    //   var y = value[1];
-    //   this.cards = this.it.filter((e)=> x < e.price && e.price < y)
-    // },
+    valueSlider(value) {
+      var x = value[0];
+      var y = value[1];
+      this.cards = this.it.filter((e)=> x < e.price && e.price < y)
+    },
     sortDate() {
        this.cards.sort((a, b) => (a.title.length * 2)-(b.title.length * 4))
        return this.sortButton = 'DATE'

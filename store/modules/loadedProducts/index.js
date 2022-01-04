@@ -8,8 +8,9 @@ export default {
   state() {
     return {
       loadedProducts: []
-    };
+    }
   },
+
   mutations: loadedProductsMutations,
   actions: loadedProductsActions,
   getters: loadedProductsGetters
