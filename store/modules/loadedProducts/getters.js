@@ -4,7 +4,4 @@ export default{
         return state.loadedProducts;
       },
 
-   
-  
-
 };

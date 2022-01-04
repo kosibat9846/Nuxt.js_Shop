@@ -1,4 +1,4 @@
-<template>
+  <template>
   <footer class="footer_area">
     <div class="container">
       <div class="row justify-content-between">
@@ -10,7 +10,7 @@
               <NuxtLink to="/products"><li>Produkty</li></NuxtLink>
 
               <NuxtLink to="/"><li>Kontakt</li></NuxtLink>
-              
+
             </ul>
           </div>
         </div>
