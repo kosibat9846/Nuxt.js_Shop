@@ -2,7 +2,7 @@
   <div class="container py-5" style="padding-top:70px;">
 
     <InfoBreadcrumb :information="information"/>
-    <InfoBox :information="relatedItems"/>
+    <InfoBox :information="information"/>
     <InfoText />
 
     <div class="related-item">
@@ -25,7 +25,7 @@ import { mapGetters } from 'vuex'
 import { mapMutations } from 'vuex'
 
 export default {
-  name:'Info',
+  name: 'Info',
   components: {
     InfoBreadcrumb, InfoBox, InfoText, Card
   },
@@ -35,53 +35,52 @@ export default {
       relatedItems: []
     }
   },
-  created(){
+  created() {
     this.information = this.infO
     this.relatedItems = this.bringItems
-    },
-  computed:
+  },
+  computed: {
 
-  //   bringItems() {
-  // return this.$store.state.loadedProducts
-  //   },
+    //   bringItems() {
+    // return this.$store.state.loadedProducts
+    //   },
 
     // infO() {
     //   return this.$store.getters.infoLength
     // },
 
-      mapState('modules/loadedProducts',{
+    ...mapState('modules/loadedProducts', {
 
-        bringItems:  state => state["modules/loadedProducts"]
+      bringItems: state => state["modules/loadedProducts"]
 
-      }),
+    }),
 
-    ...mapGetters('modules/infoPage',{
+    ...mapGetters('modules/infoPage', {
 
       infO: 'infoLength'
 
     }),
 
+  },
+    methods: {
+      // sendInfo(it, id) {
+      //  this.$store.commit('addtoInfo', it, id)
+      // }
+
+      ...mapMutations('modules/infoPage', {
+
+        sendInfo: 'addtoInfo'
+
+      }),
+
+      sliceRelatedItems() {
+        return this.relatedItems.slice(0, 3)
+      },
 
 
-
-  methods: {
-    // sendInfo(it, id) {
-    //  this.$store.commit('addtoInfo', it, id)
-    // }
-
-    ...mapMutations({
-
-      sendInfo: 'addtoInfo'
-
-    }),
-
-    sliceRelatedItems(){
-      return this.relatedItems.slice(0 ,3)
     },
 
-
-  }
-}
+};
 </script>
 
 <style scoped>

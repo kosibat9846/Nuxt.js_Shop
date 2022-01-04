@@ -1,12 +1,12 @@
 
 <template>
   <div id="app">
-    
+
     <Header />
     <Nuxt />
-    <Newsletter v-if="$route.path != '/contact'" />
+    <Newsletter v-if="$route.path !== '/contact'" />
     <Footer />
-      
+
   </div>
 </template>
 
