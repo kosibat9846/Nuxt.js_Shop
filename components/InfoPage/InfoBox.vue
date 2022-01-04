@@ -39,30 +39,21 @@ export default {
       quan: 1,
     }
   },
-//   computed: {
-//
-//   //   products() {
-//   //       return this.$store.getters.loadedProducts;
-//   //   }
-//
-//
-//
-// },
 
 
   methods:{
 
-    // addtoCart(it,id) { // Info box Add to cart button
-    //   for (var i = 0; i < this.quan; i++) {
-    //     this.$store.commit('inCart', it, id)
-    //   }
-    // },
+    addtoCart(it,id) { // Info box Add to cart button
+      for (var i = 0; i < this.quan; i++) {
+        this.$store.commit('inCart', it, id)
+      }
+    },
 
-    ...mapMutations('modules/cartItems',{
-
-      addtoCard: 'inCart'
-
-    }),
+    // ...mapMutations('modules/cartItems',{
+    //
+    //   addtoCard: 'inCart'
+    //
+    // }),
 
 
 

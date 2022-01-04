@@ -59,50 +59,48 @@ export default {
       modalClass: 'modal off'
     }
   },
-  computed:
+  computed: {
     // cartContent(){
     //   return this.$store.state.cartItems
     // },
-
-
-    mapState({
-            cartContent: state => state["modules/cartItems"]
-
-    }),
-
-
     // cartPrice() {
     //   return this.$store.getters.totalPrice
     // }
 
+    ...mapState({
+      cartContent: state => state["modules/cartItems"]
+    }),
     ...mapGetters('modules/cartItems',{
 
       cartPrice: 'totalPrice'
 
     }),
-  methods: {
-    cartON() {
-      if(this.cClass === 'cart on'){
-        this.cClass = 'cart'
-        this.modalClass = 'modal off'
-      }else{
-        this.cClass = 'cart on'
-        this.modalClass = 'modal'
-      }
+  },
+
+    methods: {
+      cartON() {
+        if (this.cClass === 'cart on') {
+          this.cClass = 'cart'
+          this.modalClass = 'modal off'
+        } else {
+          this.cClass = 'cart on'
+          this.modalClass = 'modal'
+        }
+      },
+      //   removeThing(id){
+      //     this.$store.commit('outCart',id)
+      // }
+
+      ...mapMutations('modules/cartItems', {
+
+        removeThing: 'outCart'
+
+      })
+
     },
-  //   removeThing(id){
-  //     this.$store.commit('outCart',id)
-  // }
 
-    ...mapMutations('modules/cartItems',{
 
-      removeThing: 'outCart'
-
-    })
-
-},
-
-}
+};
 </script>
 
 <style scoped>

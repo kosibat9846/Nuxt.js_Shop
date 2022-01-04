@@ -54,7 +54,7 @@
           </div>
         </div>
         <div class="row col-xl-9 col-lg-9 col-md-12 col-sm-12 col-xs-12 text-center">
-          <div v-if="this.cards == 0" class="col-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div v-if="this.cards === 0" class="col-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <h4 style="margin-left:9rem;margin-right:9rem">Sorry, we can't find a product with this features</h4>
           </div>
 
@@ -77,8 +77,7 @@ import { mapState } from 'vuex'
 export default {
   name:'Grid',
   components: {
-
-     Card
+    Card
   },
 
   data() {
@@ -91,39 +90,33 @@ export default {
   created(){
     this.cards = this.it
   },
-  computed:
+  computed: {
     // it(){
     // return this.$store.state.loadedProducts
     // },
-  mapState({
-
-    it:state => state["modules/loadedProducts"]
-
-
-  }),
-
 
     // category() {
     //   return this.$store.state.loadedCategories
     // },
+    ...mapState({
+      it: state => state["modules/loadedProducts"]
+    }),
 
-    slicedCards(){
+  slicedCards(){
       return this.cards.slice(0, this.showCards)
     },
+
+  },
   methods: {
-
-    slicedCards(){
-      return this.cards.slice(0, this.showCards)
-    },
 
     incCardNumber() {
       return this.showCards += 6
     },
-    valueSlider(value) {
-      var x = value[0];
-      var y = value[1];
-      this.cards = this.it.filter((e)=> x < e.price && e.price < y)
-    },
+    // valueSlider(value) {
+    //   var x = value[0];
+    //   var y = value[1];
+    //   this.cards = this.it.filter((e)=> x < e.price && e.price < y)
+    // },
     sortDate() {
        this.cards.sort((a, b) => (a.title.length * 2)-(b.title.length * 4))
        return this.sortButton = 'DATE'
@@ -143,7 +136,8 @@ export default {
       return this.cards = this.it
     }
   }
-  }
+
+}
 </script>
 
 <style>
