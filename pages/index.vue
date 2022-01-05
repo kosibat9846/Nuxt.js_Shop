@@ -34,7 +34,7 @@ computed: {
     //
     // })
   ...mapState({
-    it: state => state['loadedProducts']
+    it: state => state.loadedProducts
   }),
 
     ...mapGetters('modules/loadedProducts',{
