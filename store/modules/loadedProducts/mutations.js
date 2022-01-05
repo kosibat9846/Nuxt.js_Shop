@@ -1,8 +1,8 @@
 export default{
 
 
-  setProducts(state, {loadedProducts}) {
-        state.loadedProducts = loadedProducts;
+  setProducts(state, products) {
+        state.loadedProducts = products;
       },
 
 

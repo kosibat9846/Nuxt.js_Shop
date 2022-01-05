@@ -1,4 +1,4 @@
-import xios from "axios";
+
 import axios from "axios";
 
 export default{
@@ -22,8 +22,14 @@ export default{
      //    vuexContext.commit("setProducts", products);
      //  },
 
-  async loadedProducts({commit}) {
-    const loadedProducts = (await axios.get('http://localhost:8000/nosql-products')).data;
+  async nuxtServerInit({ commit, dispatch }) {
+
+    await dispatch( 'loadedProductsFunc')
+
+  },
+
+  async loadedProductsFunc ({commit}) {
+    const {loadedProducts} = (await axios.get('http://localhost:8000/nosql-products')).data;
     console.log(loadedProducts)
     commit("setProducts",{loadedProducts})
   }

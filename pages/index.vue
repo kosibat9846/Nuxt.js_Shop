@@ -33,7 +33,7 @@ computed: {
     //   products: state => state["modules/loadedProducts"]
     //
     // })
-  ...mapState({
+  ...mapState('modules/loadedProducts',{
     it: state => state.loadedProducts
   }),
 
