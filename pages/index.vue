@@ -4,7 +4,7 @@
 <div>
 <h1>Products</h1>
   <pre>{{products}}</pre>
-<!--  {{it}}-->
+
 
   <h1>Categories</h1>
   <pre>{{categories}}</pre>
@@ -15,7 +15,7 @@
 
 <script>
 import {mapState} from "vuex";
-import {mapGetters} from "vuex";
+
 import {mapActions} from "vuex";
 
 export default {
@@ -23,18 +23,7 @@ export default {
   props: ['CardArray'],
 
 computed: {
-  // ...mapState({
-  //            it: state => state["modules/loadedProducts"]
-  // }),
 
-    // products() {
-    //   return this.$store.getters.loadedProducts;
-    // }
-    // ...mapState({
-    //
-    //   products: state => state["modules/loadedProducts"]
-    //
-    // })
   ...mapState('modules/loadedProducts',{
     products: state => state.loadedProducts
   }),
@@ -42,18 +31,6 @@ computed: {
     categories: state => state.loadedCategories
   })
 
-
-    // ...mapGetters('modules/loadedProducts',{
-    //
-    //   products: 'loadedProducts',
-    //
-    //
-    // }),
-
-  // it() {
-  //
-  //   return this.$store.getters['loadedProducts/loadedProducts']
-  // }
 
   },
 

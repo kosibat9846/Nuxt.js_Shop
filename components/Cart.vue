@@ -60,12 +60,6 @@ export default {
     }
   },
   computed: {
-    // cartContent(){
-    //   return this.$store.state.cartItems
-    // },
-    // cartPrice() {
-    //   return this.$store.getters.totalPrice
-    // }
 
     ...mapState({
       cartContent: state => state.cartItems
@@ -87,9 +81,7 @@ export default {
           this.modalClass = 'modal'
         }
       },
-      //   removeThing(id){
-      //     this.$store.commit('outCart',id)
-      // }
+
 
       ...mapMutations('modules/cartItems', {
 

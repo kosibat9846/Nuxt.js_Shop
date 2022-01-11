@@ -88,13 +88,7 @@ export default {
     this.cards = this.it
   },
   computed: {
-    // it(){
-    // return this.$store.state.loadedProducts
-    // },
 
-    // category() {
-    //   return this.$store.state.loadedCategories
-    // },
     ...mapState('modules/loadedProducts',{
       it: state => state.loadedProducts
     }),
