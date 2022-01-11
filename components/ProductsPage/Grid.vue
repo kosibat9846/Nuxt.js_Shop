@@ -1,8 +1,6 @@
 <template>
 
   <div class="container grid">
-{{cards}}
-
     <div class="row justify-content-around">
       <div class="row col-6 pb-4 pr-1">
         <div class="dropdown">
@@ -43,7 +41,7 @@
                 <h4>Kategorie</h4>
 
 
-<!--              <li v-for="categories in category " :key="categories">{{categories.category}}</li>-->
+              <li v-for="categories in category " :key="categories">{{categories.category}}</li>
 
               </div>
 
@@ -69,7 +67,7 @@
 <script>
 
 import Card from './Card.vue'
-import { mapState } from 'vuex'
+import {mapActions, mapState} from 'vuex'
 
 export default {
   name:'Grid',
@@ -92,6 +90,9 @@ export default {
     ...mapState('modules/loadedProducts',{
       it: state => state.loadedProducts
     }),
+    ...mapState('modules/loadedCategories', {
+      category: state => state.loadedCategories
+    }),
 
   slicedCards(){
       return this.cards.slice(0, this.showCards)
@@ -99,6 +100,11 @@ export default {
 
   },
   methods: {
+
+    ...mapActions({
+      loadProducts: 'modules/loadedProducts/loadProducts',
+      loadCategories: 'modules/loadedCategories/loadCategories'
+    }),
 
     incCardNumber() {
       return this.showCards += 6
@@ -126,6 +132,10 @@ export default {
     reSet() {
       return this.cards = this.it
     }
+  },
+  mounted() {
+    this.loadCategories();
+    this.loadProducts();
   }
 
 }
