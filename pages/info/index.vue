@@ -41,14 +41,6 @@ export default {
   },
   computed: {
 
-    //   bringItems() {
-    // return this.$store.state.loadedProducts
-    //   },
-
-    // infO() {
-    //   return this.$store.getters.infoLength
-    // },
-
     ...mapState('modules/loadedProducts', {
 
       bringItems: state => state["modules/loadedProducts"]
@@ -63,9 +55,7 @@ export default {
 
   },
     methods: {
-      // sendInfo(it, id) {
-      //  this.$store.commit('addtoInfo', it, id)
-      // }
+
 
       ...mapMutations('modules/infoPage', {
 
