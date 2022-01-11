@@ -49,14 +49,6 @@ export default {
       }
     },
 
-    // ...mapMutations('modules/cartItems',{
-    //
-    //   addtoCard: 'inCart'
-    //
-    // }),
-
-
-
     inc() { // Info box Incrememnt button
       if (this.quan <= 8 )
        return this.quan ++

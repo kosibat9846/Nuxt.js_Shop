@@ -32,16 +32,8 @@ export default {
 
 
    computed: {
-  // //
-  // //   // products() {
-  // //   //   return this.$store.getters.loadedProducts;
-  // //   // }
-  // //   ...mapState({
-  // //
-  // //     products: state => state["modules/loadedProducts"]
-  // //
-  // //   })
-  //
+
+
     ...mapGetters('modules/loadedProducts',{
 
       products: 'loadedProducts'
@@ -54,12 +46,7 @@ export default {
 
 
   methods: {
-    // addtoCart(it) {
-    //   this.$store.commit('inCart', it)
-    // },
-    // sendInfo(it) {
-    //   this.$store.commit('addtoInfo', it)
-    // }
+
 
     ...mapMutations('modules/cartItems',{
 
