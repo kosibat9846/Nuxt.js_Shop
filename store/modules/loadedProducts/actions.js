@@ -5,7 +5,7 @@ export default{
 
 
 
-      doSomething(context) {
+      loadProducts(context) {
         return axios.get('http://localhost:8000/nosql-products')
           .then(res => {
             const productsArray = [];
