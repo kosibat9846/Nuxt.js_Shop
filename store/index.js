@@ -6,8 +6,8 @@ import cartItemsModule from './modules/cartItems/index.js'
 
 export const modules = {
 
-  loadedProductsM: loadedProductsModule,
-  loadedCategories: loadedCategoriesModule,
+  loadedProducts: loadedProductsModule,
+  // loadedCategories: loadedCategoriesModule,
   infoPage: infoPageModule,
   cartItems:  cartItemsModule,
 }
