@@ -41,7 +41,7 @@
                 <h4>Kategorie</h4>
 
 
-              <li v-for="categories in category " :key="categories">{{categories.category}}</li>
+              <li v-for="categories in category " @click="sortI('category')" >{{categories.category}}</li>
 
               </div>
 
@@ -50,7 +50,7 @@
         </div>
         <div class="row col-xl-9 col-lg-9 col-md-12 col-sm-12 col-xs-12 text-center">
           <div v-if="this.cards === 0" class="col-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            <h4 style="margin-left:9rem;margin-right:9rem">Sorry, we can't find a product with this features</h4>
+            <h4 style="margin-left:9rem;margin-right:9rem">Przepraszamy nie możemy znaleźć takiego produktu </h4>
           </div>
 
             <Card :CardArray="slicedCards" />
@@ -109,17 +109,17 @@ export default {
     incCardNumber() {
       return this.showCards += 6
     },
-    valueSlider(value) {
-      var x = value[0];
-      var y = value[1];
-      this.cards = this.it.filter((e)=> x < e.price && e.price < y)
-    },
+    // valueSlider(value) {
+    //   var x = value[0];
+    //   var y = value[1];
+    //   this.cards = this.it.filter((e)=> x < e.price && e.price < y)
+    // },
     sortDate() {
        this.cards.sort((a, b) => (a.title.length * 2)-(b.title.length * 4))
        return this.sortButton = 'DATE'
     },
     sortPrice() {
-       this.cards.sort((a, b) => a.price-b.price)
+       this.cards.sort((a, b) => a.price.nett_price-b.price.nett_price)
        return this.sortButton = 'PRICE'
     },
     sortTrend() {
