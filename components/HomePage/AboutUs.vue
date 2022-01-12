@@ -2,10 +2,10 @@
   <section class="about-us">
     <div class="row p-4">
       <div class="col-6">
-        <img class="float-lg-right" src="@/assets/logo.png">
+        <img class="float-lg-right" src="@/assets/tools.png"/>
       </div>
       <div class="col-12 col-sm-6">
-        <h1>New minimalist<br>–components</h1>
+        <h1>Witaj w naszym sklepie<br>–components</h1>
         <h6>Gravity will force your feet to the ground. Don’t be afraid, your mind will find your freedom.
            You won’t miss a sunrise. You’ll rise with the sun.
            <br>You’ll never run away from the storm. You will flow with the wind.
@@ -25,7 +25,7 @@
           </h6>
       </div>
       <div class="col-6">
-        <img src="@/assets/logo.png">
+        <img src="@/assets/toolbox.png">
       </div>
     </div>
   </section>

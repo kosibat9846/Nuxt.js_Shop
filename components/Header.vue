@@ -1,17 +1,16 @@
 <template>
   <div class="container-flex">
     <nav class="navbar navbar-light">
-      <div class="dropdown d-xl-none d-lg-none mr-auto">
+      <div class="dropdown d-xl-none d-lg-none mr-auto" >
         <img src="https://img.icons8.com/material-outlined/24/000000/menu--v1.png" data-toggle="dropdown" data-target="#navd" aria-haspopup="true" aria-expanded="false">
         <div class="dropdown-menu hb" aria-labelledby="navd">
           <nuxt-link class="dropdown-item" to="/">Strona główna</nuxt-link>
           <nuxt-link class="dropdown-item" to="/products">Produkty</nuxt-link>
           <nuxt-link class="dropdown-item" to="/contact">Kontakt</nuxt-link>
-          <nuxt-link class="dropdown-item" to="/contact">Kontakt</nuxt-link>
         </div>
       </div>
       <!--Logo-->
-      <a class="navbar-brand py-0 pl-5">
+      <a class="navbar-brand py-0 pl-5"  >
           <img src="@/assets/logo.png" width="50" height="50">
       </a>
       <!--Header navigation-->
@@ -42,23 +41,23 @@
             <button type="button" class="close" data-dismiss="modal" style="outline-style:none;" aria-label="Close">
               <span>x</span>
             </button>
-<!--            <form class="px-3 py-2">-->
-<!--              <div class="form-group">-->
-<!--                <label for="exampleDropdownFormEmail1">Email address</label>-->
-<!--                <input type="email" class="form-control" placeholder="email@example.com">-->
-<!--              </div>-->
-<!--              <div class="form-group">-->
-<!--                <label for="exampleDropdownFormPassword1">Password</label>-->
-<!--                <input type="password" class="form-control" placeholder="Password">-->
-<!--              </div>-->
-<!--              <div class="form-check">-->
-<!--                <input type="checkbox" class="form-check-input">-->
-<!--                <label class="form-check-label" for="dropdownCheck">-->
-<!--                    Remember me-->
-<!--                  </label>-->
-<!--              </div>-->
-<!--              <button type="submit" class="btn-xl btn-success mt-3">Sign in</button>-->
-<!--            </form>-->
+            <form class="px-3 py-2">
+              <div class="form-group">
+                <label>Email address</label>
+                <input type="email" class="form-control" placeholder="email@example.com">
+              </div>
+              <div class="form-group">
+                <label>Password</label>
+                <input type="password" class="form-control" placeholder="Password">
+              </div>
+              <div class="form-check">
+                <input type="checkbox" class="form-check-input">
+                <label class="form-check-label" >
+                    Remember me
+                  </label>
+              </div>
+              <button type="submit" class="btn-xl btn-success mt-3">Sign in</button>
+            </form>
           </div>
             <div class="modal-footer">
             <a class="dropdown-item" href="#">Forgot password?</a>
@@ -82,10 +81,6 @@ export default {
     Cart
   },
   computed: {
-    // bagItemscount() {
-    //   return this.$store.getters.itemsNumber
-    // }
-
     ...mapGetters('modules/cartItems',{
 
       bagItemscount: 'itemsNumber'

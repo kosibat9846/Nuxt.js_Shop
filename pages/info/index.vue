@@ -1,6 +1,5 @@
 <template >
   <div class="container py-5" style="padding-top:70px;">
-
     <InfoBreadcrumb :information="information"/>
     <InfoBox :information="information"/>
     <InfoText />
@@ -20,7 +19,7 @@ import InfoBox from '@/components/InfoPage/InfoBox.vue'
 import InfoText from '@/components/InfoPage/InfoText.vue'
 import Card from '@/components/ProductsPage/Card.vue'
 
-import { mapState } from 'vuex'
+import {mapActions, mapState} from 'vuex'
 import { mapGetters } from 'vuex'
 import { mapMutations } from 'vuex'
 
@@ -47,28 +46,43 @@ export default {
 
     }),
 
+    // ...mapState('modules/infoPage', {
+    //
+    //   infO: state => state["modules/infoPage"]
+    //
+    // }),
+
     ...mapGetters('modules/infoPage', {
 
       infO: 'infoLength'
 
     }),
 
+
+
+
   },
     methods: {
-
-
+      ...mapActions({
+        loadProducts: 'modules/loadedProducts/loadProducts',
+      }),
       ...mapMutations('modules/infoPage', {
 
         sendInfo: 'addtoInfo'
 
       }),
 
+
       sliceRelatedItems() {
-        return this.relatedItems.slice(0, 3)
+        return this.relatedItems.slice(0 ,3)
       },
 
 
     },
+
+  mounted() {
+    this.loadProducts();
+  }
 
 };
 </script>
