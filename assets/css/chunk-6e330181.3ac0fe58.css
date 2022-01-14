@@ -37,7 +37,7 @@ form[data-v-55272d04]{
         position:relative;
         border-radius:0;
         resize:none;
-        scroll-behavior:none
+        scroll-behavior:unset
     }
     .form-group input:focus~label[data-v-55272d04],
     .form-group input:valid~label[data-v-55272d04],

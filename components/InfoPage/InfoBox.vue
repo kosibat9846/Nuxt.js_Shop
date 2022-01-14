@@ -3,15 +3,22 @@
     <div class="row mb-5" v-for="it in information" :key="it._id">
       <div class="col6 col-xl-6 col-lg-6 col-md-12 col-sm-12">
         <!-- <img class="img-fluid" :src="it.img"> -->
-       <img src="@/assets/podkładka.jpg">
+       <img src="@/assets/podkładka.jpg" width="500">
 
       </div>
 
       <div class="col6 col-xl-6 col-lg-6 col-md-12 col-sm-12 d-flex align-items-center justify-content-start">
         <div class="info pt-xl-0 pt-lg-0 pt-5">
-          <span class="float-left pr-3">★★★★★</span><h6 style="width:190px;">3 reviews</h6>
+          <span class="float-left pr-3">★★★★★</span><h6 style="width:190px;">3 oceny</h6>
           <h1 class="font-weight-bold text-uppercase pt-3">{{ it.name }}</h1>
-          <h4>${{ it.name }}</h4>
+          <h6>Numer katalogowy: {{it.accession_number}}</h6>
+          <h5>cena brutto: {{ it.price.gross_price }} /kg</h5>
+          <h5>cena netto: {{ it.price.nett_price }} /kg</h5><br>
+
+          <h6>Ilość w opakowaiu: {{it.quantity}} szt</h6>
+          <h6>Waga opakowania: {{it.product_details.bulk_pack}} </h6>
+
+
           <br><br><br>
           <div class="control number text-center">
             <button class="decrement-button" @click="dec" style="border-right: 0.2px solid lightgrey;float:left;margin-right: 11px;">−</button>
@@ -19,7 +26,7 @@
             <button class="increment-button" @click="inc" style="border-left: 0.2px solid lightgrey;margin-left: 16px;">+</button>
             <br><br>
           </div>
-          <button class="add-to-cart-button" @click="addtoCart(it, it._id)">ADD TO CART</button>
+          <button class="add-to-cart-button" @click="addtoCart(it, it._id)">Dodaj do koszyka</button>
         </div>
       </div>
     </div>
@@ -28,7 +35,7 @@
 
 <script>
 
-
+import {mapMutations} from 'vuex'
 
 
 export default {
@@ -43,11 +50,16 @@ export default {
 
   methods:{
 
-    addtoCart(it,id) { // Info box Add to cart button
-      for (var i = 0; i < this.quan; i++) {
-        this.$store.commit('inCart', it, id)
-      }
-    },
+    ...mapMutations('modules/cartItems',{
+
+      addtoCart: 'inCart'
+    }),
+
+    // addtoCart(it,id) { // Info box Add to cart button
+    //   for (var i = 0; i < this.quan; i++) {
+    //     this.$store.commit('inCart', it, id)
+    //   }
+    //},
 
     inc() { // Info box Incrememnt button
       if (this.quan <= 8 )

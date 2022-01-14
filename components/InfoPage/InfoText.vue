@@ -1,13 +1,29 @@
 <template>
   <div>
-    <div class="more info d-flex justify-content-between text-center" >
-        <div class="col4 flex-fill" v-for="(info, index) in moreInfo" :class="[index === active ? 'col4 active' : '']" @click="moreInfoSelect(index)" :key="info._id">
-              <h6>{{ info }}</h6>
+    <div v-for="it in information" :key="it._id">
+
+      <div class="more info d-flex justify-content-between text-center" >
+         <div class="col4 flex-fill">
+              <h5>OPIS I SZCZEGÓŁY PRODUKTU</h5>
         </div>
-    </div>
-    <div class="container pt-3">
-      <div class="row">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+     </div>
+     <div class="container pt-3" >
+       <div class="row">
+         <p> {{it.description}}</p>
+         <br>
+         Normy: {{it.product_details.norm}}
+         <br>
+         Średnica: {{it.product_details.diameter.diameter}}
+         <br>
+         Materiał: {{it.product_details.material}}
+         <br>
+         Ochrona antykotozyjna: {{it.product_details.anti_corrosion_protection}}
+         <br>
+         Klasa twardości: {{it.product_details.hardness_class}}
+
+
+
+        </div>
       </div>
     </div>
   </div>
@@ -15,18 +31,8 @@
 
 <script>
 export default {
+  props: ['information'],
   name: 'InfoText',
-  data() {
-    return {
-      moreInfo: ['DESCRIPTION', 'WARRANTY', 'REVIEWS'],
-      active: 0,
-    }
-  },
-  methods: {
-    moreInfoSelect(index) { //More Info area tab selector
-      return this.active = index
-    },
-  }
 }
 </script>
 

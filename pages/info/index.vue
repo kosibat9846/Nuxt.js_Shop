@@ -2,7 +2,7 @@
   <div class="container py-5" style="padding-top:70px;">
     <InfoBreadcrumb :information="information"/>
     <InfoBox :information="information"/>
-    <InfoText />
+    <InfoText :information="information"/>
 
     <div class="related-item">
       <hr>

@@ -3,10 +3,10 @@
     <nav class="row justify-content-start" v-for="it in information" :key="it._id" aria-label="breadcrumb">
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <nuxt-link to="/">Home</nuxt-link>
+          <nuxt-link to="/">Strona główna</nuxt-link>
         </li>
-        <li class="breadcrumb-item"><nuxt-link to="/products">Products</nuxt-link></li>
-        <li class="breadcrumb-item">{{ it.name }}</li>
+        <li class="breadcrumb-item"><nuxt-link to="/products">Produkty</nuxt-link></li>
+<!--        <li class="breadcrumb-item">{{ it.name }}</li>-->
         <li class="breadcrumb-item active">{{ it.name }}</li>
       </ol>
     </nav>
