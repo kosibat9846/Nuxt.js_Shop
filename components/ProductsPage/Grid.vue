@@ -41,8 +41,10 @@
                 <h4>Kategorie</h4>
 
 
-              <li v-for="categories in category " @click="sortI('category')" >{{categories.category}}</li>
+              <li v-for="categories in category "   v-on:change="subcatSetup" @click="sortI('category')" >{{categories.category}}</li>
+                      <ul> 1</ul>
 
+<!--                      <ul v-for="subcat in it" :value="subcat" :key="subcat">{{subcat.subcategory}} </ul>-->
               </div>
 
             </div>
@@ -119,24 +121,38 @@ export default {
        return this.sortButton = 'DATE'
     },
     sortPrice() {
-       this.cards.sort((a, b) => a.price.nett_price-b.price.nett_price)
+       this.cards.sort((a, b) => a.price.gross_price-b.price.gross_price)
        return this.sortButton = 'PRICE'
     },
     sortTrend() {
        this.cards.sort((a, b) => a.type.length-b.type.length)
        return this.sortButton = 'TRENDING'
     },
-    sortI(name){
-      this.cards = this.it.filter((e) => e.type.match(name) || e.color.match(name))
+    sortI(category){
+      this.cards = this.it.filter((e) => e.type.match(category) || e.color.match(category))
     },
     reSet() {
       return this.cards = this.it
-    }
+    },
+
+    subcatSetup() {
+      for (var i = 0; i < this.category.length; i++) {
+        this.subcatName = this.category[i];
+
+        if (this.subcatName === "A") {
+          return (this.subcats = this.A);
+        } else if (this.subcatName === "B") {
+          return (this.subcats = this.B);
+        }
+      }
+    },
+
   },
   mounted() {
     this.loadCategories();
     this.loadProducts();
-  }
+  },
+
 
 }
 </script>
