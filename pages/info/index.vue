@@ -1,5 +1,6 @@
 <template >
   <div class="container py-5" style="padding-top:70px;">
+    {{infO}}
     <InfoBreadcrumb :information="information"/>
     <InfoBox :information="information"/>
     <InfoText :information="information"/>
@@ -45,6 +46,9 @@ export default {
       bringItems: state => state["modules/loadedProducts"]
 
     }),
+    ...mapState('modules/infoPage',{
+      info: state => state.infoPage
+    }),
 
     // ...mapState('modules/infoPage', {
     //
@@ -82,6 +86,10 @@ export default {
 
   mounted() {
     this.loadProducts();
+  },
+
+  updated() {
+    console.log('updated');
   }
 
 };

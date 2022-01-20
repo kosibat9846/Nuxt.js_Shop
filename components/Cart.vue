@@ -13,7 +13,7 @@
         </transition>
 
         <transition-group name="fade">
-          <div class="row" v-for="thing in cartContent" v-bind:key="thing._id">
+          <div class="row" v-for="(thing, index) in cartContent" :key="index">
             <div class="col4 col-xl-4 col-lg-4 col-md-4 col-sm-4">
               <!-- <img :src="thing.img" style="width: 90px;"> -->
 

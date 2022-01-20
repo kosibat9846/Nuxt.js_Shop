@@ -1,5 +1,6 @@
 <template>
   <div>
+
     <div class="row mb-5" v-for="it in information" :key="it._id">
       <div class="col6 col-xl-6 col-lg-6 col-md-12 col-sm-12">
         <!-- <img class="img-fluid" :src="it.img"> -->
@@ -26,7 +27,7 @@
             <button class="increment-button" @click="inc" style="border-left: 0.2px solid lightgrey;margin-left: 16px;">+</button>
             <br><br>
           </div>
-          <button class="add-to-cart-button" @click="addtoCart(it, it._id)">Dodaj do koszyka</button>
+          <button class="add-to-cart-button" @click="addtoCart({item:it, quantity: quan})">Dodaj do koszyka</button>
         </div>
       </div>
     </div>
@@ -52,14 +53,17 @@ export default {
 
     ...mapMutations('modules/cartItems',{
 
-      addtoCart: 'inCart'
+     addtoCart: 'inCart'
     }),
 
-    // addtoCart(it,id) { // Info box Add to cart button
+     // addtoCart(it, num) { // Info box Add to cart button
+
+      //console.log(it, num)
+
     //   for (var i = 0; i < this.quan; i++) {
     //     this.$store.commit('inCart', it, id)
     //   }
-    //},
+    // },
 
     inc() { // Info box Incrememnt button
       if (this.quan <= 8 )
