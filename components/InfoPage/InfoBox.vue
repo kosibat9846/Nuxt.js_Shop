@@ -3,8 +3,8 @@
 
     <div class="row mb-5" v-for="it in information" :key="it._id">
       <div class="col6 col-xl-6 col-lg-6 col-md-12 col-sm-12">
-        <!-- <img class="img-fluid" :src="it.img"> -->
-       <img src="@/assets/podkładka.jpg" width="500">
+
+        <img class="img-fluid" :src="it.image_url" width="500">
 
       </div>
 
@@ -13,11 +13,11 @@
           <span class="float-left pr-3">★★★★★</span><h6 style="width:190px;">3 oceny</h6>
           <h1 class="font-weight-bold text-uppercase pt-3">{{ it.name }}</h1>
           <h6>Numer katalogowy: {{it.accession_number}}</h6>
-          <h5>cena brutto: {{ it.price.gross_price }} /kg</h5>
-          <h5>cena netto: {{ it.price.nett_price }} /kg</h5><br>
+          <h5>cena brutto: {{ it.price.gross_price }} zł/kg</h5>
+          <h5>cena netto: {{ it.price.nett_price }} zł/kg</h5><br>
 
           <h6>Ilość w opakowaiu: {{it.quantity}} szt</h6>
-          <h6>Waga opakowania: {{it.product_details.bulk_pack}} </h6>
+          <h6>Waga opakowania: {{it.product_details.bulk_pack}} kg</h6>
 
 
           <br><br><br>
@@ -53,7 +53,7 @@ export default {
 
     ...mapMutations('modules/cartItems',{
 
-     addtoCart: 'inCart'
+     addtoCart: 'inCartInfo'
     }),
 
      // addtoCart(it, num) { // Info box Add to cart button
@@ -89,7 +89,7 @@ export default {
   font-size: 19px;
   font-weight: bold;
   height: 35px;
-  width: 155px;
+  width: 170px;
   margin-bottom: 30px;
 }
 .control.number button{

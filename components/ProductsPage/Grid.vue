@@ -41,10 +41,10 @@
                 <h4>Kategorie</h4>
 
 
-              <li v-for="categories in category "   v-on:change="subcatSetup" @click="sortI('category')" >{{categories.category}}</li>
-                      <ul> 1</ul>
+              <li v-for="categories in category " :key="categories._id"  @click="sortI('name')" >{{categories.name}}</li>
 
-<!--                      <ul v-for="subcat in it" :value="subcat" :key="subcat">{{subcat.subcategory}} </ul>-->
+<!--              <li v-for="subcat in category"  >{{subcat.subcategory}} </li>-->
+
               </div>
 
             </div>
@@ -54,7 +54,6 @@
           <div v-if="this.cards === 0" class="col-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <h4 style="margin-left:9rem;margin-right:9rem">Przepraszamy nie możemy znaleźć takiego produktu </h4>
           </div>
-
             <Card :CardArray="slicedCards" />
 
           <div class="col-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 py-5">
@@ -135,17 +134,17 @@ export default {
       return this.cards = this.it
     },
 
-    subcatSetup() {
-      for (var i = 0; i < this.category.length; i++) {
-        this.subcatName = this.category[i];
-
-        if (this.subcatName === "A") {
-          return (this.subcats = this.A);
-        } else if (this.subcatName === "B") {
-          return (this.subcats = this.B);
-        }
-      }
-    },
+    // subcatSetup() {
+    //   for (var i = 0; i < this.category.length; i++) {
+    //     this.subcatName = this.category[i];
+    //
+    //     if (this.subcatName === "A") {
+    //       return (this.subcats = this.A);
+    //     } else if (this.subcatName === "B") {
+    //       return (this.subcats = this.B);
+    //     }
+    //   }
+    // },
 
   },
   mounted() {
