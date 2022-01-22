@@ -15,13 +15,12 @@
         <transition-group name="fade">
           <div class="row" v-for="(thing, index) in cartContent" :key="index">
             <div class="col4 col-xl-4 col-lg-4 col-md-4 col-sm-4">
-              <!-- <img :src="thing.img" style="width: 90px;"> -->
+              <img :src="thing.image_url" style="width: 90px;">
 
-              <img  src="@/assets/podkładka.jpg" style="width: 90px;" >
             </div>
             <div class="col6 col-xl-6 col-lg-6 col-md-6 col-sm-6">
               <h4>{{ thing.name }}</h4>
-              <h6>{{ thing.name }}</h6>
+              <h6>{{ thing.price.gross_price }}zł</h6>
             </div>
             <div class="col2 col-xl-2 col-lg-2 col-md-2 col-sm-2 pt-4">
               <span class="remove-btn" @click="removeThing(thing.id)">usuń</span>
@@ -35,7 +34,7 @@
             <h4>Suma</h4>
           </div>
           <div class="flex-column pr-3">
-            <h4>${{ cartPrice }}</h4>
+            <h4>{{ cartPrice }}zł</h4>
           </div>
         </div>
       </div>
