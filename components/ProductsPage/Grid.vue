@@ -40,8 +40,18 @@
               <div  class="search-title">
                 <h4>Kategorie</h4>
 
+                <div v-for="categories in category " :key="categories._id" >
 
-              <li v-for="categories in category " :key="categories._id"  @click="sortI('name')" >{{categories.name}}</li>
+                  <li   @click="sortI('name')" >{{categories.name}}</li>
+
+                  <div>
+                      <ul> {{categories.subcategory}}</ul>
+
+
+                  </div>
+
+                </div>
+
 
 <!--              <li v-for="subcat in category"  >{{subcat.subcategory}} </li>-->
 
@@ -55,6 +65,7 @@
             <h4 style="margin-left:9rem;margin-right:9rem">Przepraszamy nie możemy znaleźć takiego produktu </h4>
           </div>
             <Card :CardArray="slicedCards" />
+
 
           <div class="col-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 py-5">
             <button type="button" @click="incCardNumber" class="btn btn-outline-secondary btn-lg btn-block">Więcej +</button>
@@ -127,8 +138,8 @@ export default {
        this.cards.sort((a, b) => a.type.length-b.type.length)
        return this.sortButton = 'TRENDING'
     },
-    sortI(category){
-      this.cards = this.it.filter((e) => e.type.match(category) || e.color.match(category))
+    sortI(name){
+      this.cards = this.it.filter((e) => e.type.match(name))
     },
     reSet() {
       return this.cards = this.it
