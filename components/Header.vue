@@ -25,7 +25,7 @@
           <input type="search" class="search">
         </div>
         <div class="user">
-          <h5 style="cursor: pointer" data-toggle="modal" data-target="#userModal">Zaloguj się</h5>
+          <h5 style="cursor: pointer" data-toggle="modal" data-target="#userModal" >Zaloguj się</h5>
         </div>
 
         <div class="bag" @click="openCart">
