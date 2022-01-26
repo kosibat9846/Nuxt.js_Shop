@@ -49,11 +49,7 @@ export default {
       infO: state => state.infoPage
     }),
 
-    // ...mapState('modules/infoPage', {
-    //
-    //   infO: state => state["modules/infoPage"]
-    //
-    // }),
+
 
     ...mapGetters('modules/infoPage', {
 
@@ -77,7 +73,7 @@ export default {
 
 
       sliceRelatedItems() {
-        return this.relatedItems.slice(0 ,3)
+        return this.relatedItems.slice(0,3)
       },
 
 

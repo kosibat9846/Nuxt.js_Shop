@@ -5,7 +5,7 @@ export default {
 
   loadCategories(context) {
     return axios
-      .get('http://localhost:8000/nosql-categories')
+      .get('http://localhost:8000/nosql/categories')
       .then(res => {
         const categoriesArray = [];
         for (const key in res.data) {

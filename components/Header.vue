@@ -14,7 +14,7 @@
           <img src="@/assets/logo.png" width="50" height="50">
       </a>
       <!--Header navigation-->
-      <span class="navbar-item bc d-none d-xl-block d-lg-block py-0">
+      <span  class="navbar-item bc d-none d-xl-block d-lg-block py-0">
         <nuxt-link class="pl-5" to="/">Strona główna</nuxt-link>
         <nuxt-link class="px-5" to="/products">Produkty</nuxt-link>
         <nuxt-link to="/contact">Kontakt</nuxt-link>
@@ -43,25 +43,25 @@
             </button>
             <form class="px-3 py-2">
               <div class="form-group">
-                <label>Email address</label>
+                <label>Adres Email</label>
                 <input type="email" class="form-control" placeholder="email@example.com">
               </div>
               <div class="form-group">
-                <label>Password</label>
-                <input type="password" class="form-control" placeholder="Password">
+                <label>Hasło</label>
+                <input type="password" class="form-control" placeholder="Hasło">
               </div>
               <div class="form-check">
                 <input type="checkbox" class="form-check-input">
                 <label class="form-check-label" >
-                    Remember me
+                   Zapamiętaj mnie
                   </label>
               </div>
-              <button type="submit" class="btn-xl btn-success mt-3">Sign in</button>
+              <button type="submit" class="btn-xl btn-success mt-3">Zaloguj</button>
             </form>
           </div>
             <div class="modal-footer">
-            <a class="dropdown-item" href="#">Forgot password?</a>
-            <a class="dropdown-item text-right" href="#">Sign up</a>
+            <a class="dropdown-item" href="#">Zapomniałeś Hasła?</a>
+            <a class="dropdown-item text-right" href="#">Zajerestuj się</a>
           </div>
         </div>
       </div>
@@ -103,6 +103,7 @@ nav {
 .navbar {
   border-bottom: 1px solid #DCDCDC;
   background-color: #F8F8F8;
+
 }
 
 .close {

@@ -4,9 +4,8 @@ import axios from "axios";
 export default{
 
 
-
       loadProducts(context) {
-        return axios.get('http://localhost:8000/nosql-products')
+        return axios.get('http://localhost:8000/nosql/products')
           .then(res => {
             const productsArray = [];
             for (const key in res.data) {
