@@ -1,6 +1,7 @@
 <template>
 
   <div class="container grid">
+
     <div class="row justify-content-around">
       <div class="row col-6 pb-4 pr-1">
         <div class="dropdown">
@@ -10,7 +11,7 @@
           <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
             <a class="dropdown-item" @click="sortDate">Data</a>
             <a class="dropdown-item" @click="sortPrice" >Cena</a>
-            <a class="dropdown-item" @click="sortTrend">Trending</a>
+
           </div>
         </div>
       </div>
@@ -18,13 +19,8 @@
         <div class="view-button">
           <div class="dropdown">
             <button class="btn btn-light dropdown-toggle d-block d-lg-none d-xl-none" role="button" id="MenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">KATEGORIE</button>
-            <div class="dropdown-menu" aria-labelledby="MenuLink">
-              <a class="dropdown-item" @click="sortI('table')">Tables</a>
-              <a class="dropdown-item" @click="sortI('lamp')">Lamps</a>
-              <a class="dropdown-item" @click="sortI('chair')">Chairs</a>
-              <a class="dropdown-item" @click="sortI('sofa')">Sofas</a>
-
-
+            <div  class="dropdown-menu" aria-labelledby="MenuLink">
+              <li style="cursor: pointer" v-for="categories in category " :key="categories._id "  @click="sortByCategory(categories.name)" >{{categories.name}}</li>
               <div class="dropdown-divider"></div>
 
               <div class="dropdown-divider"></div>
@@ -40,20 +36,13 @@
               <div  class="search-title">
                 <h4>Kategorie</h4>
 
-                <div v-for="categories in category " :key="categories._id" >
 
-                  <li   @click="sortI('name')" >{{categories.name}}</li>
-
-                  <div>
-                      <ul> {{categories.subcategory}}</ul>
-
-
-                  </div>
-
-                </div>
-
-
-<!--              <li v-for="subcat in category"  >{{subcat.subcategory}} </li>-->
+<!--                <div v-for="categories in category " :key="categories._id" >-->
+<!--                  <a data-toggle="dropdown" @click="sortByCategory(categories.name)">{{categories.name}}</a>-->
+<!--                  <div class="dropdown-menu subcategory">-->
+<!--                    <a v-for="item in categories.subcategory"  @click="sortBySubcategory(item.name)">{{item.name}}</a>-->
+<!--                  </div>-->
+<!--                </div>-->
 
               </div>
 
@@ -107,7 +96,8 @@ export default {
     }),
 
   slicedCards(){
-      return this.cards.slice(0, this.showCards)
+      let products = [...this.cards] ;
+      return products.slice(0, this.showCards)
     },
 
   },
@@ -121,41 +111,27 @@ export default {
     incCardNumber() {
       return this.showCards += 6
     },
-    // valueSlider(value) {
-    //   var x = value[0];
-    //   var y = value[1];
-    //   this.cards = this.it.filter((e)=> x < e.price && e.price < y)
-    // },
+
     sortDate() {
-       this.cards.sort((a, b) => (a.title.length * 2)-(b.title.length * 4))
-       return this.sortButton = 'DATE'
+       this.cards.sort((a, b) => (a.name.length * 2)-(b.name.length * 4))
+       return this.sortButton = 'Data'
     },
     sortPrice() {
-       this.cards.sort((a, b) => a.price.gross_price-b.price.gross_price)
-       return this.sortButton = 'PRICE'
+       this.cards.sort((a, b) => a.price.nett_price-b.price.nett.price)
+       return this.sortButton = 'Cena'
     },
-    sortTrend() {
-       this.cards.sort((a, b) => a.type.length-b.type.length)
-       return this.sortButton = 'TRENDING'
+
+    sortByCategory(name){
+      this.cards = this.it.filter((e) => e.category.match(name));
     },
-    sortI(name){
-      this.cards = this.it.filter((e) => e.type.match(name))
+
+    sortBySubcategory(name){
+      this.cards = this.it.filter((e) =>  e.subcategory.match(name));
     },
     reSet() {
       return this.cards = this.it
     },
 
-    // subcatSetup() {
-    //   for (var i = 0; i < this.category.length; i++) {
-    //     this.subcatName = this.category[i];
-    //
-    //     if (this.subcatName === "A") {
-    //       return (this.subcats = this.A);
-    //     } else if (this.subcatName === "B") {
-    //       return (this.subcats = this.B);
-    //     }
-    //   }
-    // },
 
   },
   mounted() {
@@ -209,13 +185,9 @@ export default {
   cursor: pointer;
 }
 
-.circle {
-  height: 17px;
-  width: 17px;
-  border-radius: 50%;
-  border: 0.7px solid #2c3539;
-  display: inline-block;
-  margin-left: 6px;
-  cursor:pointer
+.subcategory {
+  display: flex;
+  flex-flow: column wrap;
 }
+
 </style>
