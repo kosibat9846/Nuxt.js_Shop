@@ -2,27 +2,28 @@
   <section class="about-us">
     <div class="row p-4">
       <div class="col-6">
-        <img class="float-lg-right" src="@/assets/tools.png"/>
+        <img class="float-lg-right" src="@/assets/tools.png" >
       </div>
       <div class="col-12 col-sm-6">
-        <h1>Witaj w naszym sklepie<br>–components</h1>
-        <h6>Gravity will force your feet to the ground. Don’t be afraid, your mind will find your freedom.
-           You won’t miss a sunrise. You’ll rise with the sun.
-           <br>You’ll never run away from the storm. You will flow with the wind.
-           <br>Don’t hesitate to pause. Follow the flow of the moment.
-           And then, take the first step towards the new you.
-          </h6>
+        <h1>Witaj w naszym sklepie<br>–o nas</h1>
+        <h4><br><br> Sklep METALSHOP zajmuje się sprzedażą artykułów metalowych
+          głownie wykorzystywanych w technice zamocowań. Oferujemy produkty najlepszych marek.
+          Gwarantujemy najwyższą jakość, oraz konkurencyjne ceny.
+          </h4>
       </div>
     </div>
     <div class="row p-4">
-      <div class="col-12 col-sm-6 text-sm-right text-md-right ml-sm-0 ml-md-5 ml-lg-5 ml-xl-5 text-lg-right order-sm-first order-12" style="margin-right: -8%; z-index:1;">
-        <h1>Save Space<br>more freedom</h1>
-        <h6>Gravity will force your feet to the ground. Don’t be afraid, your mind will find your freedom.
-           You won’t miss a sunrise. You’ll rise with the sun.
-           You’ll never run away from the storm. You will flow with the wind.
-           Don’t hesitate to pause. Follow the flow of the moment.
-           And then, take the first step towards the new you.
-          </h6>
+      <div class="col-12 col-sm-6 text-sm-left text-md-left ml-sm-0 ml-md-5 ml-lg-5 ml-xl-5 text-lg-left order-sm-first order-12" style="margin-right: -8%; z-index:1;">
+        <h1>Znajdziesz u nas:</h1>
+        <h4>
+          <br><br>
+          - Nakrętki <br>
+          - Śruby <br>
+          - Wkręty <br>
+          - Gwoździe <br>
+          - Podkładki <br>
+
+          </h4>
       </div>
       <div class="col-6">
         <img src="@/assets/toolbox.png">
@@ -39,7 +40,13 @@ export default {
 
 <style scoped>
 .about-us img {
-  width: 90%;
-  min-width: 380px;
+  width: 70%;
+  min-width: 300px;
 }
+
+.col-12 col-sm-6{
+
+  text-indent: 20px;
+}
+
 </style>

@@ -11,7 +11,7 @@
       </div>
       <!--Logo-->
       <a class="navbar-brand py-0 pl-5"  >
-          <img src="@/assets/logo.png" width="50" height="50">
+        <n-link to="/"><img src="@/assets/logo.png" width="50" height="50"></n-link>
       </a>
       <!--Header navigation-->
       <span  class="navbar-item bc d-none d-xl-block d-lg-block py-0">
@@ -19,11 +19,13 @@
         <nuxt-link class="px-5" to="/products">Produkty</nuxt-link>
         <nuxt-link to="/contact">Kontakt</nuxt-link>
       </span>
-
+<!--      search-->
       <p class="navbar-item ml-auto">
         <div class="searc d-none d-xl-block d-lg-block pr-3">
           <input type="search" class="search">
         </div>
+
+
         <div class="user">
           <h5 style="cursor: pointer" data-toggle="modal" data-target="#userModal" >Zaloguj się</h5>
         </div>
@@ -92,6 +94,8 @@ export default {
     openCart() {
       this.$refs.cartMove.cartON()
     }
+
+
   }
 };
 </script>

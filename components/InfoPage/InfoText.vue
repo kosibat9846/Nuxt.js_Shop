@@ -12,10 +12,14 @@
          <div class="infobox-content">
          <p> {{it.description}}</p>
          <br>
-           <a>Normy: {{it.product_details.norm}}</a>
+           <a>Norma: {{it.product_details.norm}}</a>
          <br>
-           <a>Średnica: {{it.product_details.diameter.diameter}}</a>
+           <a>Rozmiar: {{it.measurement}}</a>
+           <br>
+           <a>Średnica: {{it.product_details.diameter.diameter}} mm</a>
          <br>
+           <a>Długość: {{it.product_details.dimensions.length}} mm</a>
+           <br>
            <a>Materiał: {{it.product_details.material}}</a>
          <br>
            <a>Ochrona antykotozyjna: {{it.product_details.anti_corrosion_protection}}</a>

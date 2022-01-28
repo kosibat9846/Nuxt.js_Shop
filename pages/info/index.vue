@@ -10,6 +10,7 @@
       <hr>
       <h6 class="pb-4">POLECANE PRODUKTY</h6>
       <Card :CardArray="sliceRelatedItems" />
+
     </div>
   </div>
 </template>
@@ -45,7 +46,7 @@ export default {
 
     ...mapState('modules/loadedProducts', {
 
-      products: state => state["modules/loadedProducts"]
+      bringItems: state => state["modules/loadedProducts"]
 
     }),
     ...mapState('modules/infoPage',{
