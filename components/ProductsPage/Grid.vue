@@ -10,7 +10,9 @@
           </a>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
             <a class="dropdown-item" @click="sortDate">Data</a>
-            <a class="dropdown-item" @click="sortPrice" >Cena</a>
+            <a class="dropdown-item" @click="sortPriceUp" >Cena rosnąco</a>
+            <a class="dropdown-item" @click="sortPriceDown" >Cena malejąco</a>
+
 
           </div>
         </div>
@@ -118,9 +120,14 @@ export default {
        this.cards.sort((a, b) => (a.name.length * 2)-(b.name.length * 4))
        return this.sortButton = 'Data'
     },
-    sortPrice() {
-       this.cards.sort((a, b) => a.price.gross_proce-b.price.gross_price)
-       return this.sortButton = 'Cena'
+    sortPriceUp() {
+       this.cards.sort((a, b) => a.price.gross_price-b.price.gross_price)
+       return this.sortButton = 'Cena >'
+    },
+
+    sortPriceDown() {
+      this.cards.sort((a, b) => b.price.gross_price-a.price.gross_price)
+      return this.sortButton = 'Cena <'
     },
 
     sortByCategory(name){

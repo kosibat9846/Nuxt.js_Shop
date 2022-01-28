@@ -6,7 +6,7 @@
           <nuxt-link to="/">Strona główna</nuxt-link>
         </li>
         <li class="breadcrumb-item"><nuxt-link to="/products">Produkty</nuxt-link></li>
-<!--        <li class="breadcrumb-item">{{ it.name }}</li>-->
+        <li class="breadcrumb-item">{{ it.category }}</li>
         <li class="breadcrumb-item active">{{ it.name }}</li>
       </ol>
     </nav>
