@@ -3,7 +3,7 @@
     <transition-group name="fade" class="row" tag="div">
       <div v-for="product in CardArray" class="col-6 col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-4 pb-3" :key="product._id">
         <div class="card">
-<!--           <img class="card-img-top" src="@/assets/podkładka.jpg" alt="Card image cap">-->
+
           <img class="card-img-top" :src="product.image_url" >
 
           <div class="overlay">
@@ -26,32 +26,16 @@
 
 <script>
 
-import { mapGetters } from 'vuex'
+
 import { mapMutations} from 'vuex'
 
 
 
 export default {
 
-  props: {
-    CardArray: {
-      type: Array,
-      required: true
-    }
-  },
+  props: ['CardArray'],
+   name: 'Card',
 
-
-   computed: {
-
-
-    ...mapGetters('modules/loadedProducts',{
-
-      //products: 'loadedProducts'
-
-    }),
-
-
-  },
 
 
 
