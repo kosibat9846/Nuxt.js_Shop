@@ -9,19 +9,20 @@
      </div>
      <div class="container pt-3" >
        <div class="row">
+         <div class="infobox-content">
          <p> {{it.description}}</p>
          <br>
-         Normy: {{it.product_details.norm}}
+           <a>Normy: {{it.product_details.norm}}</a>
          <br>
-         Średnica: {{it.product_details.diameter.diameter}}
+           <a>Średnica: {{it.product_details.diameter.diameter}}</a>
          <br>
-         Materiał: {{it.product_details.material}}
+           <a>Materiał: {{it.product_details.material}}</a>
          <br>
-         Ochrona antykotozyjna: {{it.product_details.anti_corrosion_protection}}
+           <a>Ochrona antykotozyjna: {{it.product_details.anti_corrosion_protection}}</a>
          <br>
-         Klasa twardości: {{it.product_details.hardness_class}}
+         <a> Twardość: {{it.product_details.hardness_class}}</a>
 
-
+         </div>
 
         </div>
       </div>
@@ -49,5 +50,11 @@ export default {
   font-weight: bold;
   border-bottom:1px solid black !important;
   color: black;
+}
+
+.infobox-content {
+
+  flex-flow: unset;
+
 }
 </style>

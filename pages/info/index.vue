@@ -4,12 +4,13 @@
     <InfoBox :information="information"/>
     <InfoText :information="information"/>
 
+
+
     <div class="related-item">
       <hr>
       <h6 class="pb-4">POLECANE PRODUKTY</h6>
       <Card :CardArray="sliceRelatedItems" />
     </div>
-
   </div>
 </template>
 
@@ -24,6 +25,8 @@ import { mapGetters } from 'vuex'
 import { mapMutations } from 'vuex'
 
 export default {
+
+
   name: 'Info',
   components: {
     InfoBreadcrumb, InfoBox, InfoText, Card
@@ -42,12 +45,14 @@ export default {
 
     ...mapState('modules/loadedProducts', {
 
-      bringItems: state => state["modules/loadedProducts"]
+      products: state => state["modules/loadedProducts"]
 
     }),
     ...mapState('modules/infoPage',{
       infO: state => state.infoPage
     }),
+
+
 
 
 
@@ -64,7 +69,9 @@ export default {
     methods: {
       ...mapActions({
         loadProducts: 'modules/loadedProducts/loadProducts',
+
       }),
+
       ...mapMutations('modules/infoPage', {
 
         sendInfo: 'addtoInfo'
@@ -73,6 +80,7 @@ export default {
 
 
       sliceRelatedItems() {
+
         return this.relatedItems.slice(0,3)
       },
 
@@ -81,11 +89,9 @@ export default {
 
   mounted() {
     this.loadProducts();
+
   },
 
-  updated() {
-    console.log('updated');
-  }
 
 };
 </script>

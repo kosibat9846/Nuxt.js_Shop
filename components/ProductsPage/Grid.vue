@@ -25,6 +25,8 @@
 
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" @click="reSet">Reset</a>
+
+
             </div>
           </div>
         </div>
@@ -36,14 +38,14 @@
               <div  class="search-title">
                 <h4>Kategorie</h4>
 
+                <div class="dropleft" v-for="categories in category " :key="categories._id">
+                  <button class="dropleft-btn"  data-toggle="dropdown" >{{categories.name}}
+                    <span class="caret"></span></button>
+                  <ul class="dropdown-menu">
+                    <li v-for="item in categories.subcategory"  @click="sortBySubcategory(item.name)">{{item.name}}</li>
 
-<!--                <div v-for="categories in category " :key="categories._id" >-->
-<!--                  <a data-toggle="dropdown" @click="sortByCategory(categories.name)">{{categories.name}}</a>-->
-<!--                  <div class="dropdown-menu subcategory">-->
-<!--                    <a v-for="item in categories.subcategory"  @click="sortBySubcategory(item.name)">{{item.name}}</a>-->
-<!--                  </div>-->
-<!--                </div>-->
-
+                  </ul>
+                </div>
               </div>
 
             </div>
@@ -117,7 +119,7 @@ export default {
        return this.sortButton = 'Data'
     },
     sortPrice() {
-       this.cards.sort((a, b) => a.price.nett_price-b.price.nett.price)
+       this.cards.sort((a, b) => a.price.gross_proce-b.price.gross_price)
        return this.sortButton = 'Cena'
     },
 
@@ -158,25 +160,13 @@ export default {
   border-radius: 0 !important;
   border: 1px solid grey !important;
 }
-.dropdown-menu{
-  background-color: #eee;
-  color: #2c3539;
-}
-
-.dropdown-menu > a:hover{
-  background-color: #dae0e5
-
-}
-
 .btn-outline-secondary {
   border-radius: 0 !important;
 }
 
-/*search options*/
-
 .card-selector {
   color: #DCDCDC;
-  height: 40rem;
+  height: auto;
   background: #2c3539 !important;
   box-shadow: 0 8px 6px 0 rgba(0, 0, 0, 0.1), 0 26px 70px 0 rgba(0, 0, 0, 0.69);
 }
@@ -185,9 +175,77 @@ export default {
   cursor: pointer;
 }
 
-.subcategory {
-  display: flex;
-  flex-flow: column wrap;
+/*///////////////////////////////////*/
+.dropleft button {
+
+  background: #2c3539;
+  width: 180px
 }
 
+
+.dropdown-menu {
+  background-color: #eee;
+  color: #2c3e50;
+  width: auto;
+  height: auto;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  cursor: pointer;
+}
+.dropdown-menu li{
+
+  padding: 10px;
+
+}
+.dropdown-menu > li:hover{
+  background-color: #dae0e5;
+  padding-bottom: 20px;
+  padding-top: 20px;
+
+}
+
+/*///////////////////////////////////*/
+/* Fixed sidenav, full height */
+.dropleft-btn {
+  height: auto;
+  width: auto;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border: none;
+  color: white;
+  cursor: pointer;
+  text-align: left;
+
+}
+
+/* Style the sidenav links and the dropdown button */
+.dropleft > button:hover{
+
+  text-decoration: none;
+  color: #818181;
+  display: block;
+  border: none;
+  background-color: #2c3e50 ;
+  width:100%;
+  cursor: pointer;
+
+}
+
+/* On mouse-over */
+.dropleft-btn a:hover{
+  color: #f1f1f1;
+}
+
+/* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
+.dropdown-container {
+  display: none;
+  background-color: #262626;
+  padding-left: 8px;
+}
+
+/* Optional: Style the caret down icon */
+.fa-caret-down {
+  float: right;
+  padding-right: 8px;
+}
 </style>
