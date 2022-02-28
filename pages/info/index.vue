@@ -6,12 +6,8 @@
 
 
 
-    <div class="related-item">
-      <hr>
-      <h6 class="pb-4">POLECANE PRODUKTY</h6>
-      <Card :CardArray="sliceRelatedItems" />
 
-    </div>
+
   </div>
 </template>
 
@@ -25,11 +21,13 @@ import {mapActions, mapState} from 'vuex'
 import { mapGetters } from 'vuex'
 import { mapMutations } from 'vuex'
 
+
 export default {
 
 
   name: 'Info',
   components: {
+    
     InfoBreadcrumb, InfoBox, InfoText, Card
   },
   data() {
